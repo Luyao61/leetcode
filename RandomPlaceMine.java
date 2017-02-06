@@ -23,34 +23,41 @@ class RandomPlaceMine {
     int h = map.length;
     int w = map[0].length;
 
+    //initialize mine location;
+    //place all mine at the begining of map;
     for(int i=0; i<m; i++){
       mine[i] = i;
       map[(int)i/w][(int)i%w] = -1;
     }
+    /* Helper code to print map;
     for(int[] a : map){
       for(int b : a){
         System.out.print(" " + b + " ");
       }
       System.out.println("\n");
-    }
+    }*/
 
     //create a Random gegrator;
     Random rand = new Random();
+    //
     for(int i =m; i< map.length * map[0].length; i++){
       int n = rand.nextInt(i);
       if(n<m){
-        //swap mine; move mine to the new place;
+        //swap mine; move mine from previous place to the new place;
         map[(int)mine[n]/w][(int)mine[n]%w] = 0;
         map[(int)i/w][(int)i%w] = -1;
+        //record mine current place;
         mine[n] = i;
       }
     }
+    /* Helper code to print map;
     for(int[] a : map){
       for(int b : a){
         System.out.print(" " + b + " ");
       }
       System.out.println("\n");
     }
+    */
     return map;
   }
 }
