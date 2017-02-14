@@ -1,4 +1,6 @@
-
+/*Not Implemented*/
+/*we can mark a group of 1s and its conection in main func*/
+/*Traverse again and update the map*/
 import java.io.*;
 import java.util.*;
 
