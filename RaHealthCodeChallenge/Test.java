@@ -19,7 +19,7 @@ public class Test {
 
 	
 	@org.junit.Test
-	public void test1() {
+	public void test01() {
         HashMap<Point, Point> portals = new HashMap<Point, Point>();
         Point[] obstacles = new Point[] {
         };
@@ -31,7 +31,7 @@ public class Test {
 	}
 	
 	@org.junit.Test
-	public void test2() {
+	public void test02() {
         HashMap<Point, Point> portals = new HashMap<Point, Point>();
         portals.put(new Point(2,1), new Point(0,3));
         Point[] obstacles = new Point[] {
@@ -44,7 +44,7 @@ public class Test {
 	}
 	
 	@org.junit.Test
-	public void test3() {
+	public void test03() {
         HashMap<Point, Point> portals = new HashMap<Point, Point>();
         Point[] obstacles = new Point[] {
             new Point(2,1)
@@ -58,7 +58,7 @@ public class Test {
 	
 	
 	@org.junit.Test
-	public void test4() {
+	public void test04() {
         HashMap<Point, Point> portals = new HashMap<Point, Point>();
         portals.put(new Point(1,1), new Point(4,4));
         portals.put(new Point(2,2), new Point(3,3));
@@ -71,8 +71,9 @@ public class Test {
 		assertEquals(88, ans);
 	}	
 	
+	
 	@org.junit.Test
-	public void test5() {
+	public void test05() {
         HashMap<Point, Point> portals = new HashMap<Point, Point>();
         portals.put(new Point(4,0), new Point(6,4));
         portals.put(new Point(2,5), new Point(5,2));
@@ -92,7 +93,7 @@ public class Test {
 	}
 	
 	@org.junit.Test
-	public void test6() {
+	public void test06() {
         HashMap<Point, Point> portals = new HashMap<Point, Point>();
         portals.put(new Point(0,0), new Point(3,3));
         Point[] obstacles = new Point[]{
@@ -108,7 +109,7 @@ public class Test {
 	}	
 	
 	@org.junit.Test
-	public void test7() {
+	public void test07() {
         HashMap<Point, Point> portals = new HashMap<Point, Point>();
         portals.put(new Point(0,0), new Point(4,4));
         //portals.put(new Point(2,2), new Point(4,4));
@@ -121,7 +122,7 @@ public class Test {
 	}
 
 	@org.junit.Test
-	public void test8() {
+	public void test08() {
         HashMap<Point, Point> portals = new HashMap<Point, Point>();
         portals.put(new Point(2,2), new Point(0,0));
         Point[] obstacles = new Point[]{
@@ -131,4 +132,29 @@ public class Test {
 		int ans = grid.solve();
 		assertEquals(-1, ans);
 	}
+	
+	@org.junit.Test
+	public void test09() {
+        HashMap<Point, Point> portals = new HashMap<Point, Point>();
+        Point[] obstacles = new Point[]{
+        	new Point(0,0)
+        }; 
+        Grid grid = new Grid(2, 2, obstacles, portals);
+
+		int ans = grid.solve();
+		assertEquals(0, ans);
+	}
+	
+	@org.junit.Test
+	public void test10() {
+        HashMap<Point, Point> portals = new HashMap<Point, Point>();
+        Point[] obstacles = new Point[]{
+        	new Point(0,1)
+        }; 
+        Grid grid = new Grid(3, 3, obstacles, portals);
+
+		int ans = grid.solve();
+		assertEquals(3, ans);
+	}
+	
 }

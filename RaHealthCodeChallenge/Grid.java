@@ -89,13 +89,16 @@ public class Grid
             Arrays.fill(row,-1);
         }
 
+
+        //base case
+        dp[0][0] = 1;
+        
         //mark obstacle points 0
         for(Point p: obstacles){
             dp[p.x][p.y] = 0;
         }
 
-        //base case
-        dp[0][0] = 1;
+
         
         /* create a hashmap to save dp[i][j] if (i,j) is jump start
          * key is the dest of jump point pairs, value is dp[i][j] where (i,j) is jump start
