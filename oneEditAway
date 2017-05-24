@@ -1,0 +1,53 @@
+import java.io.*;
+
+class oneEditAway
+{
+    public static void main (String[] args) throws java.lang.Exception
+    {
+        String str1 = "peaks";
+        String str2 = "peak";
+        System.out.println(oneEditAway(str1, str2));
+    }
+    public static boolean oneEditAway(String str1, String str2){
+        int m = str1.length();
+        int n = str2.length();
+
+        if(m-n>1 || n-m>1){
+            return false;
+        }
+
+        int countEdits = 0;
+
+        int i = 0;
+        int j = 0;
+        while(i <m && j < n){
+            if(str1.charAt(i) != str2.charAt(j)){
+                countEdits++;
+                if(countEdits > 1){
+                    return false;
+                }
+
+                if(m==n){
+                    i++;
+                    j++;
+                }
+                else if(m<n){
+                    i++;
+                }
+                else if(n<m){
+                    j++;
+                }
+            }
+            else{
+                i++;
+                j++;
+            }
+        }
+
+        if(i!=m || j!=n){
+            countEdits++;
+        }
+
+        return countEdits==1;
+    }
+}
